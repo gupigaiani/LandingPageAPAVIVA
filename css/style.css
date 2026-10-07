@@ -82,6 +82,7 @@ h2,
 h3 {
     line-height: 1.14;
     letter-spacing: -.04em;
+    overflow-wrap: anywhere;
     margin: 0
 }
 
@@ -346,8 +347,7 @@ h1 em {
     margin-top: 25px
 }
 
-.purpose h3,
-.values-title {
+.purpose h3 {
     font-size: 1rem;
     letter-spacing: -.02em;
     margin-bottom: 10px
@@ -357,21 +357,6 @@ h1 em {
     font-size: .9rem
 }
 
-.values {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 0;
-    margin: 0
-}
-
-.values li {
-    border: 1px solid var(--line);
-    padding: 4px 10px;
-    border-radius: 30px;
-    font-size: .75rem
-}
 
 .projects {
     background: #f0f3eb
@@ -397,7 +382,7 @@ h1 em {
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px
 }
 
@@ -460,7 +445,7 @@ h1 em {
 
 .stats {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     margin: 48px 0 25px
 }
 
@@ -721,6 +706,127 @@ textarea::placeholder {
     top: 10px
 }
 
+/* Ajustes de conteúdo institucional, preservando o sistema visual existente. */
+.brand img {
+    width: 210px;
+    height: auto;
+    object-fit: contain;
+}
+
+.site-footer .brand {
+    background: var(--green);
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.header-inner nav {
+    gap: 20px;
+}
+
+blockquote {
+    margin: 0 0 16px;
+    font-size: .95rem;
+    color: var(--ink);
+}
+
+.source-link {
+    margin-top: 20px;
+    font-size: .85rem;
+}
+
+.source-link a,
+.impact-note a,
+.institutional-milestone a,
+address a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.cause-cards article {
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+}
+
+.cause-cards h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+}
+
+.cause-cards p {
+    color: var(--muted);
+    font-size: .95rem;
+}
+
+.project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card > img {
+    height: 310px;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.card-content a {
+    margin-top: auto;
+    padding-top: 18px;
+}
+
+.stats dd .stat-qualifier {
+    display: block;
+    font-size: .85rem;
+    letter-spacing: 0;
+    margin-bottom: 8px;
+}
+
+.institutional-milestone {
+    border-top: 1px solid #ffffff35;
+    padding-top: 24px;
+    margin: 28px 0 0;
+    font-size: .85rem;
+}
+
+.institutional-milestone strong {
+    color: var(--lime);
+    font-size: 1.3rem;
+}
+
+address {
+    font-style: normal;
+    font-size: .95rem;
+    overflow-wrap: anywhere;
+}
+
+form h3 {
+    font-size: 1.4rem;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.hero :focus-visible,
+.impact :focus-visible,
+.site-footer :focus-visible {
+    outline-color: var(--lime);
+}
+
 @media(min-width:1001px) {
     .menu-toggle {
         display: none
@@ -773,6 +879,8 @@ textarea::placeholder {
     }
 
     .header-inner nav {
+        max-height: 65vh;
+        overflow-y: auto;
         flex-basis: 100%;
         flex-wrap: wrap;
         padding-top: 12px
@@ -787,7 +895,7 @@ textarea::placeholder {
     }
 
     .about {
-        grid-template-columns: 1fr 1.2fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
         gap: 30px
     }
 
@@ -847,8 +955,8 @@ textarea::placeholder {
     }
 
     .brand img {
-        width: 35px;
-        height: 35px
+        width: 175px;
+        height: auto;
     }
 
     .brand small {
@@ -929,7 +1037,7 @@ textarea::placeholder {
     }
 
     .purpose {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 20px
     }
 

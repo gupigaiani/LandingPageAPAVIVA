@@ -45,16 +45,6 @@ form.addEventListener('submit', (event) => {
   validateText(messageField, 10, 'Escreva uma mensagem com pelo menos 10 caracteres.');
   if (!form.reportValidity()) return;
   // A demonstração termina no navegador: não há requisição ou armazenamento.
-  status.textContent = 'Tudo certo! Sua mensagem foi validada nesta demonstração. Nenhum dado foi enviado ou armazenado.';
+  status.textContent = 'Validação concluída. Este formulário é demonstrativo e não realiza o envio de informações. Nenhum dado foi enviado à APAVIVA ou armazenado.';
   form.reset();
-});
-
-document.querySelectorAll('[data-subject]').forEach((link) => {
-  link.addEventListener('click', () => {
-    document.querySelector('#assunto').value = link.dataset.subject;
-    status.textContent = '';
-  });
-});
-document.querySelectorAll('[data-social]').forEach((link) => {
-  link.addEventListener('click', () => document.querySelector('#social-note').focus({ preventScroll: true }));
 });
